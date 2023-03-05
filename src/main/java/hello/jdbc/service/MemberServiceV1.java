@@ -3,12 +3,8 @@ package hello.jdbc.service;
 import hello.jdbc.domain.Member;
 import hello.jdbc.repository.MemberRepositoryV1;
 import lombok.RequiredArgsConstructor;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
-
-import static hello.jdbc.constants.ConnectionConst.*;
 
 @RequiredArgsConstructor
 public class MemberServiceV1 {
@@ -26,7 +22,7 @@ public class MemberServiceV1 {
 
     private void validation(Member toMember) {
         if (toMember.getMemberId().equals("ex")) {
-            throw new IllegalArgumentException("이체중 예외 발생");
+            throw new IllegalStateException("이체중 예외 발생");
         }
     }
 }
