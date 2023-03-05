@@ -1,6 +1,5 @@
 package hello.jdbc.connection;
 
-import hello.jdbc.constants.ConnectionConst;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;

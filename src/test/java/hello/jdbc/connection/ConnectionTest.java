@@ -1,9 +1,7 @@
 package hello.jdbc.connection;
 
 import com.zaxxer.hikari.HikariDataSource;
-import hello.jdbc.constants.ConnectionConst;
 import lombok.extern.slf4j.Slf4j;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
