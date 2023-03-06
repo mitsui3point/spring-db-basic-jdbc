@@ -3,6 +3,7 @@ package hello.jdbc.repository;
 import com.zaxxer.hikari.HikariDataSource;
 import hello.jdbc.domain.Member;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
@@ -19,9 +20,13 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 public class MemberRepositoryV2Test {
     private MemberRepositoryV2 repository;
 
+    @BeforeEach
+    void setUp() {
+        repository = new MemberRepositoryV2();
+    }
+
     @Test
     void driverManagerDataSourceTest() throws SQLException {
-        repository = new MemberRepositoryV2();
         DataSource dataSource = getDriverManagerDataSourceConnection();
         Connection con = dataSource.getConnection();
         con.setAutoCommit(false);//transaction start
@@ -31,7 +36,6 @@ public class MemberRepositoryV2Test {
 
     @Test
     void hikariDataSourceTest() throws SQLException, InterruptedException {
-        repository = new MemberRepositoryV2();
         DataSource dataSource = getHikariDataSource();
         Connection con = dataSource.getConnection();
         con.setAutoCommit(false);//transaction start
